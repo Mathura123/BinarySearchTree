@@ -7,6 +7,16 @@ namespace BSTProblem
     class BinarySearchTree<T> where T : IComparable
     {
         public Node<T> rootNode;
+        public BinarySearchTree()
+        {
+        }
+        public BinarySearchTree(T[] datas)
+        {
+            foreach(T data in datas)
+            {
+                Add(data);
+            }
+        }
         public void Add(T data)
         {
             Node<T> newNode = new Node<T>(data);

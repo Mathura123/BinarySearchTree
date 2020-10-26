@@ -8,7 +8,7 @@ namespace BSTProblem
         {
             Console.WriteLine("Welcome to BST Problem Assignment");
             Console.WriteLine("=================================");
-            BinarySearchTree<int> bstObj = new BinarySearchTree<int>();
+            BinarySearchTree<int> bstObj = new BinarySearchTree<int>(new[] { 2,3,5});
             bstObj.Add(9);
             bstObj.Add(9);
             bstObj.Add(86);
