@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BSTProblem
@@ -12,7 +13,7 @@ namespace BSTProblem
         }
         public BinarySearchTree(T[] datas)
         {
-            foreach(T data in datas)
+            foreach (T data in datas)
             {
                 Insert(data);
             }
@@ -34,6 +35,7 @@ namespace BSTProblem
                     {
                         if (tempNode.leftNode == null)
                         {
+                            newNode.parentNode = tempNode;
                             tempNode.leftNode = newNode;
                             nodePositionFound = true;
                         }
@@ -44,6 +46,7 @@ namespace BSTProblem
                     {
                         if (tempNode.rightNode == null)
                         {
+                            newNode.parentNode = tempNode;
                             tempNode.rightNode = newNode;
                             nodePositionFound = true;
                         }
@@ -53,6 +56,11 @@ namespace BSTProblem
                 }
             }
             Console.WriteLine($"INSERTED {data}");
+        }
+        public void Display()
+        {
+            Console.WriteLine("------------------------");
+            rootNode.PrintPretty("", NodePosition.center, true, false);
         }
     }
 }
