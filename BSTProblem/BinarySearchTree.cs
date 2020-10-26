@@ -8,6 +8,7 @@ namespace BSTProblem
     class BinarySearchTree<T> where T : IComparable
     {
         public Node<T> rootNode;
+        private int nodeCount=0;
         public BinarySearchTree()
         {
         }
@@ -24,6 +25,7 @@ namespace BSTProblem
             if (rootNode == null)
             {
                 rootNode = newNode;
+                nodeCount++;
             }
             else
             {
@@ -38,6 +40,7 @@ namespace BSTProblem
                             newNode.parentNode = tempNode;
                             tempNode.leftNode = newNode;
                             nodePositionFound = true;
+                            nodeCount++;
                         }
                         else
                             tempNode = tempNode.leftNode;
@@ -49,6 +52,7 @@ namespace BSTProblem
                             newNode.parentNode = tempNode;
                             tempNode.rightNode = newNode;
                             nodePositionFound = true;
+                            nodeCount++;
                         }
                         else
                             tempNode = tempNode.rightNode;
@@ -57,10 +61,22 @@ namespace BSTProblem
             }
             Console.WriteLine($"INSERTED {data}");
         }
+        public void GetSize()
+        {
+            Console.WriteLine("--------------------");
+            Console.WriteLine($"Size of BST is {nodeCount}"); 
+        }
         public void Display()
         {
-            Console.WriteLine("------------------------");
-            rootNode.PrintPretty("", NodePosition.center, true, false);
+            Console.WriteLine("--------------------");
+            try
+            {
+                rootNode.PrintPretty("", NodePosition.center, true, false);
+            }
+            catch 
+            {
+                Console.WriteLine("BST is Empty");
+            }
         }
     }
 }
