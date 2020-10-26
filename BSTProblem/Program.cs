@@ -24,6 +24,9 @@ namespace BSTProblem
             bstObj.Insert(16);
             bstObj.Display();
             bstObj.GetSize();
+            bstObj.Search(1);
+            bstObj.Search(16);
+            bstObj.Search(22);
         }
     }
 }

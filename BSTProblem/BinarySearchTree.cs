@@ -8,7 +8,7 @@ namespace BSTProblem
     class BinarySearchTree<T> where T : IComparable
     {
         public Node<T> rootNode;
-        private int nodeCount=0;
+        private int nodeCount = 0;
         public BinarySearchTree()
         {
         }
@@ -64,7 +64,32 @@ namespace BSTProblem
         public void GetSize()
         {
             Console.WriteLine("--------------------");
-            Console.WriteLine($"Size of BST is {nodeCount}"); 
+            Console.WriteLine($"Size of BST is {nodeCount}");
+        }
+        public void Search(T data)
+        {
+            bool found = false;
+            if (rootNode == null)
+                Console.WriteLine("BST is EMPTY");
+            else
+            {
+                Node<T> tempNode = rootNode;
+                while (!found)
+                {
+                    if (tempNode.data.CompareTo(data) == 0)
+                        found = true;
+                    else if ((tempNode.data.CompareTo(data) > 0) && (tempNode.leftNode != null))
+                        tempNode = tempNode.leftNode;
+                    else if ((tempNode.data.CompareTo(data) < 0) && (tempNode.rightNode != null))
+                        tempNode = tempNode.rightNode;
+                    else
+                        break;
+                }
+            }
+            if(found)
+                Console.WriteLine($"--------------------\n{data} FOUND in BST");
+            else
+                Console.WriteLine($"--------------------\n{data} NOT FOUND in BST");
         }
         public void Display()
         {
@@ -73,7 +98,7 @@ namespace BSTProblem
             {
                 rootNode.PrintPretty("", NodePosition.center, true, false);
             }
-            catch 
+            catch
             {
                 Console.WriteLine("BST is Empty");
             }
