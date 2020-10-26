@@ -14,10 +14,10 @@ namespace BSTProblem
         {
             foreach(T data in datas)
             {
-                Add(data);
+                Insert(data);
             }
         }
-        public void Add(T data)
+        public void Insert(T data)
         {
             Node<T> newNode = new Node<T>(data);
             if (rootNode == null)
@@ -52,7 +52,7 @@ namespace BSTProblem
                     }
                 }
             }
-            Console.WriteLine($"ADDED {data}");
+            Console.WriteLine($"INSERTED {data}");
         }
     }
 }
